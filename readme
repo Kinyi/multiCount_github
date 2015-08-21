@@ -1,0 +1,10 @@
+该工程的ExtractAppidRecord.java和FieldCount.java与cheatFilter工程的GenAppid2.java和CountTimes.java
+组合一起实现的功能
+
+运营给出疑似作弊的Email(文件形式)-->
+关联MySQL中subject_data_report数据库的dim_appcontent表获取Email对应的appid(一对多)-->
+从某天的全量点击数据(appid,click_date,province,model_type,system_version,network_state,is_jail_broken)中统计这些appid的点击量-->
+筛选出点击量相对较大的appid-->
+根据这些appid从某天的全量点击数据中提取记录-->
+对该文件中的每行记录进行处理(每个字段都从json串中获取该字段的点击量、从上下界文件中读取该字段的上下界和该记录对应appid的全量点击)-->
+经过算法代码获得每条记录的概率
